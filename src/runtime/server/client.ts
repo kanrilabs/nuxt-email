@@ -1,8 +1,7 @@
 import { AwsClient } from 'aws4fetch'
 import type { H3Event } from 'h3'
-import { MailBuilder, type MailConfig } from './builder'
-
-const AWS_SES_ENDPOINT = 'https://email.us-east-1.amazonaws.com/v2/email/outbound-emails'
+import type { MailConfig } from '../types/email'
+import { MailBuilder } from './builder'
 
 class EmailClient extends MailBuilder {
   #client: AwsClient
