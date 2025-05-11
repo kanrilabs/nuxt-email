@@ -1,6 +1,6 @@
 {
   "name": "@kanrilabs/nuxt-email",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Nuxt module for composing and sending emails",
   "repository": {
     "type": "git",
@@ -11,8 +11,7 @@
   "exports": {
     ".": {
       "types": "./dist/types.d.mts",
-      "import": "./dist/module.mjs",
-      "require": "./dist/module.cjs"
+      "import": "./dist/module.mjs"
     }
   },
   "main": "./dist/module.mjs",
