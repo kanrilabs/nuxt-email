@@ -1,7 +1,5 @@
 import type { MimeType } from '@uploadthing/mime-types'
 import { randomUUID } from 'uncrypto'
-import { consola } from 'consola'
-import { colors } from 'consola/utils'
 import type { Header, MailConfig, MailHeader, MimePart, MultipartMime } from '../types/email'
 
 /**
@@ -166,18 +164,6 @@ export class MailBuilder {
   }
 
   /**
-   * Pretty print the raw email
-   */
-  pretty() {
-    this.addHeader({ name: 'MIME-Version', value: '1.0' })
-    this.#headers.forEach((value, key) => {
-      consola.log(`${colors.bold(key)}: ${value}`)
-    })
-
-    printMimePart(this.#content)
-  }
-
-  /**
    * Build the final email
    * @returns The final email as a base64 encoded string
    */
@@ -200,37 +186,6 @@ export class MailBuilder {
 
 function isMultipart(part: MimePart | MultipartMime): part is MultipartMime {
   return 'type' in part && part.type === 'multipart'
-}
-
-function printMimePart(part: MimePart | MultipartMime) {
-  if (isMultipart(part)) {
-    const boundary = createBoundary(part.subtype)
-    const boundaryColor = {
-      mixed: colors.redBright,
-      alternative: colors.blueBright,
-      related: colors.greenBright,
-    } satisfies Record<MultipartMime['subtype'], typeof colors[keyof typeof colors]>
-
-    consola.log(boundaryColor[part.subtype](`Content-Type: multipart/${part.subtype}; boundary="${boundary}"`))
-    consola.log('')
-    part.parts.forEach((p) => {
-      consola.log(boundaryColor[part.subtype](colors.bold(`--${boundary}`)))
-      printMimePart(p)
-    })
-    consola.log(boundaryColor[part.subtype](colors.bold(`--${boundary}--`)))
-    consola.log('')
-  }
-
-  if (!isMultipart(part)) {
-    consola.box(colors.reset([
-      `${colors.bold('Content-Type:')} ${part.contentType}; charset=UTF-8`,
-      part.contentTransferEncoding && `${colors.bold('Content-Transfer-Encoding:')} ${part.contentTransferEncoding}`,
-      part.contentDisposition && `${colors.bold('Content-Disposition:')} ${part.contentDisposition}`,
-      part.contentId && `${colors.bold('Content-ID:')} ${part.contentId}`,
-      '',
-      part.content,
-    ].filter(Boolean).join('\n')))
-  }
 }
 
 // Low-level MIME parts renderer
