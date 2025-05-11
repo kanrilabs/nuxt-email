@@ -6,22 +6,24 @@ const AWS_SES_ENDPOINT = 'https://email.us-east-1.amazonaws.com/v2/email/outboun
 
 class EmailClient extends MailBuilder {
   #client: AwsClient
+  #endpoint: string
 
   constructor(event: H3Event, config: MailConfig) {
     super(config)
 
-    const { accessKeyId, secretAccessKey } = useRuntimeConfig(event).mail
+    const { accessKeyId, secretAccessKey, region } = useRuntimeConfig(event).mail
     this.#client = new AwsClient({
       accessKeyId,
       secretAccessKey,
       service: 'ses',
     })
+    this.#endpoint = `https://email.${region}.amazonaws.com/v2/email/outbound-emails`
   }
 
   async send() {
     const content = this.build()
     try {
-      const res = await this.#client.fetch(AWS_SES_ENDPOINT, {
+      const res = await this.#client.fetch(this.#endpoint, {
         body: JSON.stringify({ Content: { Raw: { Data: content } } }),
       })
       return res.json()

@@ -11,7 +11,9 @@ export default defineNuxtModule<ModuleOptions>({
     name: 'Nuxt Email',
     configKey: 'email',
   },
-  defaults: {},
+  defaults: {
+    region: 'us-east-1',
+  },
   setup(_options, _nuxt) {
     const resolver = createResolver(import.meta.url)
 
