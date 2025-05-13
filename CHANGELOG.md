@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.5
+
+[compare changes](https://github.com/kanrilabs/nuxt-email/compare/v0.0.4...v0.0.5)
+
+### 🚀 Enhancements
+
+- Sns mail notifications & automatic subscription ([a085837](https://github.com/kanrilabs/nuxt-email/commit/a085837))
+
+### ❤️ Contributors
+
+- Gerben Mulder <github.undergo381@passmail.net>
+
 ## v0.0.4
 
 [compare changes](https://github.com/kanrilabs/nuxt-email/compare/v0.0.3...v0.0.4)
