@@ -20,6 +20,7 @@ export default defineNuxtModule<ModuleOptions>({
     addServerImports([
       { name: 'useEmail', from: resolver.resolve('./runtime/server/client') },
       { name: 'MailBuilder', from: resolver.resolve('./runtime/server/builder') },
+      { name: 'defineSESEventHandler', from: resolver.resolve('./runtime/server/ses/event') },
     ])
   },
 })
