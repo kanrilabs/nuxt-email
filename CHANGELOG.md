@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.1.0
+
+[compare changes](https://github.com/kanrilabs/nuxt-email/compare/v0.0.5...v0.1.0)
+
+### 🚀 Enhancements
+
+- ⚠️  Move from builder pattern to function ([ad720db](https://github.com/kanrilabs/nuxt-email/commit/ad720db))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Move from builder pattern to function ([ad720db](https://github.com/kanrilabs/nuxt-email/commit/ad720db))
+
+### ❤️ Contributors
+
+- Gerben Mulder <github.undergo381@passmail.net>
+
 ## v0.0.5
 
 [compare changes](https://github.com/kanrilabs/nuxt-email/compare/v0.0.4...v0.0.5)
