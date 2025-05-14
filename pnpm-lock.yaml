@@ -11,6 +11,15 @@ importers:
       '@nuxt/kit':
         specifier: ^3.17.2
         version: 3.17.2(magicast@0.3.5)
+      aws4fetch:
+        specifier: ^1.0.20
+        version: 1.0.20
+      defu:
+        specifier: ^6.1.4
+        version: 6.1.4
+      destr:
+        specifier: ^2.0.5
+        version: 2.0.5
     devDependencies:
       '@nuxt/devtools':
         specifier: ^2.4.0
@@ -36,15 +45,9 @@ importers:
       '@uploadthing/mime-types':
         specifier: ^0.3.5
         version: 0.3.5
-      aws4fetch:
-        specifier: ^1.0.20
-        version: 1.0.20
       changelogen:
         specifier: ^0.6.1
         version: 0.6.1(magicast@0.3.5)
-      destr:
-        specifier: ^2.0.5
-        version: 2.0.5
       eslint:
         specifier: ^9.26.0
         version: 9.26.0(jiti@2.4.2)
